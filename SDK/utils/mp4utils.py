@@ -499,8 +499,8 @@ class Mp4File:
         for atom in self.atoms:
             if atom.type == 'moov':
                 self.init_segment = atom
-            elif atom.type == 'moof':
-                self.segments.append([atom])
+#            elif atom.type == 'moof':
+#                self.segments.append([atom])
             else:
                 if len(self.segments):
                     self.segments[-1].append(atom)
@@ -549,7 +549,11 @@ class Mp4File:
         track = None
         segment_size = 0
         segment_duration_sec = 0.0
+        segment_position = 0
         for atom in self.tree:
+            segment_position += int(atom['size'])
+            print 'Position: ', segment_position
+            
             if atom['name'] == 'sidx':
                 for key, value in atom.iteritems():
                     if key.startswith('entry'):
@@ -574,85 +578,10 @@ class Mp4File:
                         else:
                             segment_bitrate = 0
                         track.segment_bitrates.append(segment_bitrate)
-                            
-#            segment_size += atom['size']naa
-#            if atom['name'] == 'moof':
-#                trafs = FilterChildren(atom, 'traf')
-#                if len(trafs) != 1:
-#                    PrintErrorAndExit('ERROR: unsupported input file, more than one "traf" box in fragment')
-#                tfhd = FilterChildren(trafs[0], 'tfhd')[0]
-#                track = self.tracks[tfhd['track ID']]
-#                track.moofs.append(segment_index)
-#                segment_duration = 0
-#                default_sample_duration = tfhd.get('default sample duration', track.default_sample_duration)
-#                for trun in FilterChildren(trafs[0], 'trun'):
-#                    track.sample_counts.append(trun['sample count'])
-#                    for (name, value) in trun.items():
-#                        if name[0] in '0123456789':
-#                            sample_duration = -1
-#                            fields = value.split(',')
-#                            for field in fields:
-#                                if field.startswith('d:'):
-#                                    sample_duration = int(field[2:])
-#                            if sample_duration == -1:
-#                                sample_duration = default_sample_duration
-#                            segment_duration += sample_duration
-#                track.segment_scaled_durations.append(segment_duration)
-#                segment_duration_sec = float(segment_duration) / float(track.timescale)
-#                track.segment_durations.append(segment_duration_sec)
-#                segment_index += 1
-#
-#                # remove the 'trun' entries to save some memory
-#                for traf in trafs:
-#                    traf['children'] = [x for x in traf['children'] if x['name'] != 'trun']
-#
-#            elif atom['name'] == 'mdat':
-#                # end of fragment on 'mdat' atom
-#                if track:
-#                    track.segment_sizes.append(segment_size)
-#                    if segment_duration_sec > 0.0:
-#                        segment_bitrate = int((8.0 * float(segment_size)) / segment_duration_sec)
-#                    else:
-#                        segment_bitrate = 0
-#                    track.segment_bitrates.append(segment_bitrate)
-#                segment_size = 0
-#
-#        # parse the 'mfra' index if there is one and update segment durations.
-#        # this is needed to deal with input files that have an 'mfra' index that
-#        # does not exactly match the sample durations (because of rounding errors),
-#        # which will make the Smooth Streaming URL mapping fail since the IIS Smooth Streaming
-#        # server uses the 'mfra' index to locate the segments in the source .ismv file
-#        mfra = FindChild(self.tree, ['mfra'])
-#        if mfra:
-#            for tfra in FilterChildren(mfra, 'tfra'):
-#                track_id = tfra['track_ID']
-#                if track_id not in self.tracks:
-#                    continue
-#                track = self.tracks[track_id]
-#                moof_pointers = []
-#                for (name, value) in tfra.items():
-#                    if name.startswith('['):
-#                        attributes = value.split(',')
-#                        attribute_dict = {}
-#                        for attribute in attributes:
-#                            (attribute_name, attribute_value) = attribute.strip().split('=')
-#                            attribute_dict[attribute_name] = int(attribute_value)
-#                        if attribute_dict['traf_number'] == 1 and attribute_dict['trun_number'] == 1 and attribute_dict['sample_number'] == 1:
-#                            # this points to the first sample of the first trun of the first traf, use it as a start time indication
-#                            moof_pointers.append(attribute_dict)
-#                if len(moof_pointers) > 1:
-#                    for i in range(len(moof_pointers)-1):
-#                        if i+1 >= len(track.moofs):
-#                            break
-#
-#                        moof1 = self.segments[track.moofs[i]][0]
-#                        moof2 = self.segments[track.moofs[i+1]][0]
-#                        if moof1.position == moof_pointers[i]['moof_offset'] and moof2.position == moof_pointers[i+1]['moof_offset']:
-#                            # pointers match two consecutive moofs
-#                            moof_duration = moof_pointers[i+1]['time'] - moof_pointers[i]['time']
-#                            moof_duration_sec = float(moof_duration) / float(track.timescale)
-#                            track.segment_durations[i] = moof_duration_sec
-#                            track.segment_scaled_durations[i] = moof_duration
+                        
+                        segment = {'position': segment_position}
+                        self.segments.append(segment)
+                        segment_position += segment_size
 
         # compute the total numer of samples for each track
         for track_id in self.tracks:

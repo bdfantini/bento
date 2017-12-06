@@ -639,11 +639,11 @@ def OutputHlsTrack(options, track, media_subdir, media_playlist_name, media_file
     for i in range(len(track.segment_sizes)):
         media_playlist_file.write('#EXTINF:%f,\r\n' % (track.segment_durations[i]))
         if options.on_demand or not options.split:
-            segment          = track.parent.segments[track.moofs[i]]
-            segment_position = segment[0].position
+            segment          = track.parent.segments[i]
+            segment_position = segment['position']
             segment_size     = track.segment_sizes[i]
             media_playlist_file.write('#EXT-X-BYTERANGE:%d@%d\r\n' % (segment_size, segment_position))
-            media_playlist_file.write(media_file_name)
+            media_playlist_file.write('fmp4.mp4')
         else:
             media_playlist_file.write(segment_pattern % (i+1))
         media_playlist_file.write('\r\n')
@@ -1812,7 +1812,7 @@ def main():
                 shutil.copyfile(subtitles_file.media_source.filename, media_filename)
 
     # output the DASH MPD
-    OutputDash(options, set_attributes, audio_sets, video_sets, subtitles_sets, subtitles_files)
+    # OutputDash(options, set_attributes, audio_sets, video_sets, subtitles_sets, subtitles_files)
 
     # output the HLS playlists
     if options.hls:

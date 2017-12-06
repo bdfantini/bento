@@ -88,11 +88,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "$(SRCROOT)/SDK/videos/fmp4.mp4"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "$(SRCROOT)/SDK/videos/fmp4_header.mp4"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

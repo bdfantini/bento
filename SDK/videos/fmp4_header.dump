@@ -1,0 +1,452 @@
+[ftyp] size=8+20
+  major_brand = dash
+  minor_version = 0
+  compatible_brand = iso6
+  compatible_brand = avc1
+  compatible_brand = mp41
+[moov] size=8+675
+  [mvhd] size=12+96
+    timescale = 90000
+    duration = 161997000
+    duration(ms) = 1799967
+  [mvex] size=8+32
+    [trex] size=12+20
+      track id = 1
+      default sample description index = 1
+      default sample duration = 0
+      default sample size = 0
+      default sample flags = 0
+  [trak] size=8+519
+    [tkhd] size=12+80, flags=3
+      enabled = 1
+      id = 1
+      duration = 161997000
+      volume = 0
+      layer = 0
+      alternate_group = 0
+      matrix_0 = 1.000000
+      matrix_1 = 0.000000
+      matrix_2 = 0.000000
+      matrix_3 = 0.000000
+      matrix_4 = 1.000000
+      matrix_5 = 0.000000
+      matrix_6 = 0.000000
+      matrix_7 = 0.000000
+      matrix_8 = 16384.000000
+      width = 1280.000000
+      height = 720.000000
+    [edts] size=8+28
+      [elst] size=12+16
+        entry count = 1
+        entry/segment duration = 0
+        entry/media time = 3000
+        entry/media rate = 1
+    [mdia] size=8+383
+      [mdhd] size=12+20
+        timescale = 90000
+        duration = 161997000
+        duration(ms) = 1799966
+        language = und
+      [hdlr] size=12+33
+        handler_type = vide
+        handler_name = VideoHandler
+      [minf] size=8+298
+        [dinf] size=8+28
+          [dref] size=12+16
+            [url ] size=12+0, flags=1
+              location = [local to file]
+        [stbl] size=8+234
+          [stsd] size=12+138
+            entry-count = 1
+            [avc1] size=8+126
+              data_reference_index = 1
+              width = 1280
+              height = 720
+              compressor = 
+              [avcC] size=8+40
+                Configuration Version = 1
+                Profile = Main
+                Profile Compatibility = 40
+                Level = 31
+                NALU Length Size = 4
+                Sequence Parameter = [67 4d 40 1f e8 80 28 02 dd 80 88 00 00 03 00 08 00 00 03 01 e0 78 c1 88 90]
+                Picture Parameter = [68 eb ef 20]
+          [stts] size=12+4
+            entry_count = 0
+          [stsc] size=12+4
+            entry_count = 0
+          [stco] size=12+4
+            entry_count = 0
+          [stsz] size=12+8
+            sample_size = 0
+            sample_count = 0
+          [stss] size=12+4
+            entry_count = 0
+        [vmhd] size=12+8, flags=1
+          graphics_mode = 0
+          op_color = 0000,0000,0000
+[sidx] size=12+4340
+  reference_ID = 1
+  timescale = 90000
+  earliest_presentation_time = 0
+  first_offset = 0
+  entry 0000 = reference_type=0, referenced_size=186214, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0001 = reference_type=0, referenced_size=180694, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0002 = reference_type=0, referenced_size=180920, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0003 = reference_type=0, referenced_size=181492, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0004 = reference_type=0, referenced_size=178669, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0005 = reference_type=0, referenced_size=181294, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0006 = reference_type=0, referenced_size=178662, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0007 = reference_type=0, referenced_size=172718, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0008 = reference_type=0, referenced_size=183411, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0009 = reference_type=0, referenced_size=186581, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0010 = reference_type=0, referenced_size=189708, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0011 = reference_type=0, referenced_size=182090, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0012 = reference_type=0, referenced_size=183846, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0013 = reference_type=0, referenced_size=184968, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0014 = reference_type=0, referenced_size=184780, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0015 = reference_type=0, referenced_size=180977, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0016 = reference_type=0, referenced_size=182768, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0017 = reference_type=0, referenced_size=181490, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0018 = reference_type=0, referenced_size=183165, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0019 = reference_type=0, referenced_size=181435, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0020 = reference_type=0, referenced_size=177939, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0021 = reference_type=0, referenced_size=182672, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0022 = reference_type=0, referenced_size=174702, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0023 = reference_type=0, referenced_size=179893, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0024 = reference_type=0, referenced_size=188077, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0025 = reference_type=0, referenced_size=181902, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0026 = reference_type=0, referenced_size=179281, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0027 = reference_type=0, referenced_size=179070, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0028 = reference_type=0, referenced_size=181005, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0029 = reference_type=0, referenced_size=182288, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0030 = reference_type=0, referenced_size=175034, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0031 = reference_type=0, referenced_size=175233, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0032 = reference_type=0, referenced_size=177640, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0033 = reference_type=0, referenced_size=180314, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0034 = reference_type=0, referenced_size=181955, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0035 = reference_type=0, referenced_size=184648, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0036 = reference_type=0, referenced_size=185757, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0037 = reference_type=0, referenced_size=178245, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0038 = reference_type=0, referenced_size=180916, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0039 = reference_type=0, referenced_size=176719, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0040 = reference_type=0, referenced_size=179476, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0041 = reference_type=0, referenced_size=181993, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0042 = reference_type=0, referenced_size=184586, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0043 = reference_type=0, referenced_size=182849, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0044 = reference_type=0, referenced_size=182519, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0045 = reference_type=0, referenced_size=182867, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0046 = reference_type=0, referenced_size=187073, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0047 = reference_type=0, referenced_size=181435, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0048 = reference_type=0, referenced_size=186585, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0049 = reference_type=0, referenced_size=186878, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0050 = reference_type=0, referenced_size=180953, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0051 = reference_type=0, referenced_size=183153, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0052 = reference_type=0, referenced_size=178152, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0053 = reference_type=0, referenced_size=188484, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0054 = reference_type=0, referenced_size=176759, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0055 = reference_type=0, referenced_size=180990, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0056 = reference_type=0, referenced_size=186575, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0057 = reference_type=0, referenced_size=180432, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0058 = reference_type=0, referenced_size=182059, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0059 = reference_type=0, referenced_size=182607, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0060 = reference_type=0, referenced_size=184771, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0061 = reference_type=0, referenced_size=187017, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0062 = reference_type=0, referenced_size=177193, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0063 = reference_type=0, referenced_size=182012, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0064 = reference_type=0, referenced_size=182023, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0065 = reference_type=0, referenced_size=179289, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0066 = reference_type=0, referenced_size=187665, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0067 = reference_type=0, referenced_size=181126, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0068 = reference_type=0, referenced_size=180436, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0069 = reference_type=0, referenced_size=188122, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0070 = reference_type=0, referenced_size=177947, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0071 = reference_type=0, referenced_size=183118, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0072 = reference_type=0, referenced_size=178257, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0073 = reference_type=0, referenced_size=182291, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0074 = reference_type=0, referenced_size=183690, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0075 = reference_type=0, referenced_size=184703, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0076 = reference_type=0, referenced_size=182329, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0077 = reference_type=0, referenced_size=183634, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0078 = reference_type=0, referenced_size=183797, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0079 = reference_type=0, referenced_size=184510, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0080 = reference_type=0, referenced_size=183747, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0081 = reference_type=0, referenced_size=182933, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0082 = reference_type=0, referenced_size=181533, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0083 = reference_type=0, referenced_size=180085, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0084 = reference_type=0, referenced_size=181121, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0085 = reference_type=0, referenced_size=183490, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0086 = reference_type=0, referenced_size=184563, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0087 = reference_type=0, referenced_size=181180, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0088 = reference_type=0, referenced_size=183974, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0089 = reference_type=0, referenced_size=183469, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0090 = reference_type=0, referenced_size=180015, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0091 = reference_type=0, referenced_size=184380, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0092 = reference_type=0, referenced_size=180780, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0093 = reference_type=0, referenced_size=181289, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0094 = reference_type=0, referenced_size=182128, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0095 = reference_type=0, referenced_size=179848, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0096 = reference_type=0, referenced_size=187360, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0097 = reference_type=0, referenced_size=179982, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0098 = reference_type=0, referenced_size=179606, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0099 = reference_type=0, referenced_size=181365, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0100 = reference_type=0, referenced_size=177904, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0101 = reference_type=0, referenced_size=177493, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0102 = reference_type=0, referenced_size=181429, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0103 = reference_type=0, referenced_size=184074, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0104 = reference_type=0, referenced_size=184291, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0105 = reference_type=0, referenced_size=181804, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0106 = reference_type=0, referenced_size=182258, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0107 = reference_type=0, referenced_size=182890, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0108 = reference_type=0, referenced_size=182296, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0109 = reference_type=0, referenced_size=179744, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0110 = reference_type=0, referenced_size=177532, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0111 = reference_type=0, referenced_size=177780, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0112 = reference_type=0, referenced_size=180342, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0113 = reference_type=0, referenced_size=181204, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0114 = reference_type=0, referenced_size=181955, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0115 = reference_type=0, referenced_size=181038, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0116 = reference_type=0, referenced_size=184256, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0117 = reference_type=0, referenced_size=190440, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0118 = reference_type=0, referenced_size=180973, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0119 = reference_type=0, referenced_size=181620, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0120 = reference_type=0, referenced_size=185393, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0121 = reference_type=0, referenced_size=181538, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0122 = reference_type=0, referenced_size=177996, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0123 = reference_type=0, referenced_size=185078, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0124 = reference_type=0, referenced_size=177166, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0125 = reference_type=0, referenced_size=185557, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0126 = reference_type=0, referenced_size=181379, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0127 = reference_type=0, referenced_size=177733, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0128 = reference_type=0, referenced_size=181790, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0129 = reference_type=0, referenced_size=175559, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0130 = reference_type=0, referenced_size=182928, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0131 = reference_type=0, referenced_size=183090, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0132 = reference_type=0, referenced_size=183133, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0133 = reference_type=0, referenced_size=184057, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0134 = reference_type=0, referenced_size=182151, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0135 = reference_type=0, referenced_size=180168, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0136 = reference_type=0, referenced_size=178713, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0137 = reference_type=0, referenced_size=175030, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0138 = reference_type=0, referenced_size=181904, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0139 = reference_type=0, referenced_size=179729, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0140 = reference_type=0, referenced_size=180952, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0141 = reference_type=0, referenced_size=181107, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0142 = reference_type=0, referenced_size=180572, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0143 = reference_type=0, referenced_size=179170, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0144 = reference_type=0, referenced_size=186454, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0145 = reference_type=0, referenced_size=178610, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0146 = reference_type=0, referenced_size=182651, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0147 = reference_type=0, referenced_size=181360, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0148 = reference_type=0, referenced_size=182559, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0149 = reference_type=0, referenced_size=182656, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0150 = reference_type=0, referenced_size=182618, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0151 = reference_type=0, referenced_size=180010, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0152 = reference_type=0, referenced_size=182996, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0153 = reference_type=0, referenced_size=179240, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0154 = reference_type=0, referenced_size=185165, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0155 = reference_type=0, referenced_size=180588, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0156 = reference_type=0, referenced_size=185193, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0157 = reference_type=0, referenced_size=182004, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0158 = reference_type=0, referenced_size=177873, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0159 = reference_type=0, referenced_size=179214, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0160 = reference_type=0, referenced_size=181343, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0161 = reference_type=0, referenced_size=184086, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0162 = reference_type=0, referenced_size=183584, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0163 = reference_type=0, referenced_size=183987, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0164 = reference_type=0, referenced_size=181498, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0165 = reference_type=0, referenced_size=181150, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0166 = reference_type=0, referenced_size=182570, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0167 = reference_type=0, referenced_size=186396, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0168 = reference_type=0, referenced_size=185462, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0169 = reference_type=0, referenced_size=184704, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0170 = reference_type=0, referenced_size=182549, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0171 = reference_type=0, referenced_size=173860, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0172 = reference_type=0, referenced_size=178789, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0173 = reference_type=0, referenced_size=183430, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0174 = reference_type=0, referenced_size=178132, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0175 = reference_type=0, referenced_size=181208, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0176 = reference_type=0, referenced_size=180999, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0177 = reference_type=0, referenced_size=187994, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0178 = reference_type=0, referenced_size=185521, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0179 = reference_type=0, referenced_size=178795, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0180 = reference_type=0, referenced_size=187723, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0181 = reference_type=0, referenced_size=184383, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0182 = reference_type=0, referenced_size=182298, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0183 = reference_type=0, referenced_size=180133, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0184 = reference_type=0, referenced_size=185451, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0185 = reference_type=0, referenced_size=177643, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0186 = reference_type=0, referenced_size=176931, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0187 = reference_type=0, referenced_size=182799, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0188 = reference_type=0, referenced_size=180955, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0189 = reference_type=0, referenced_size=183330, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0190 = reference_type=0, referenced_size=183108, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0191 = reference_type=0, referenced_size=182787, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0192 = reference_type=0, referenced_size=183531, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0193 = reference_type=0, referenced_size=186053, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0194 = reference_type=0, referenced_size=185280, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0195 = reference_type=0, referenced_size=180702, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0196 = reference_type=0, referenced_size=178725, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0197 = reference_type=0, referenced_size=180294, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0198 = reference_type=0, referenced_size=182428, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0199 = reference_type=0, referenced_size=182093, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0200 = reference_type=0, referenced_size=182816, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0201 = reference_type=0, referenced_size=183166, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0202 = reference_type=0, referenced_size=179168, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0203 = reference_type=0, referenced_size=179403, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0204 = reference_type=0, referenced_size=181070, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0205 = reference_type=0, referenced_size=183035, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0206 = reference_type=0, referenced_size=182998, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0207 = reference_type=0, referenced_size=180962, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0208 = reference_type=0, referenced_size=179971, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0209 = reference_type=0, referenced_size=185701, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0210 = reference_type=0, referenced_size=182862, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0211 = reference_type=0, referenced_size=182402, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0212 = reference_type=0, referenced_size=184661, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0213 = reference_type=0, referenced_size=175089, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0214 = reference_type=0, referenced_size=186129, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0215 = reference_type=0, referenced_size=182660, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0216 = reference_type=0, referenced_size=187918, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0217 = reference_type=0, referenced_size=181135, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0218 = reference_type=0, referenced_size=182294, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0219 = reference_type=0, referenced_size=184490, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0220 = reference_type=0, referenced_size=185916, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0221 = reference_type=0, referenced_size=182389, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0222 = reference_type=0, referenced_size=185290, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0223 = reference_type=0, referenced_size=183315, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0224 = reference_type=0, referenced_size=182402, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0225 = reference_type=0, referenced_size=183957, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0226 = reference_type=0, referenced_size=182946, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0227 = reference_type=0, referenced_size=181293, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0228 = reference_type=0, referenced_size=186857, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0229 = reference_type=0, referenced_size=182674, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0230 = reference_type=0, referenced_size=182908, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0231 = reference_type=0, referenced_size=178716, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0232 = reference_type=0, referenced_size=184664, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0233 = reference_type=0, referenced_size=182798, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0234 = reference_type=0, referenced_size=184073, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0235 = reference_type=0, referenced_size=178295, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0236 = reference_type=0, referenced_size=185990, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0237 = reference_type=0, referenced_size=177725, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0238 = reference_type=0, referenced_size=179298, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0239 = reference_type=0, referenced_size=182458, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0240 = reference_type=0, referenced_size=181488, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0241 = reference_type=0, referenced_size=179153, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0242 = reference_type=0, referenced_size=181963, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0243 = reference_type=0, referenced_size=183547, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0244 = reference_type=0, referenced_size=185226, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0245 = reference_type=0, referenced_size=181024, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0246 = reference_type=0, referenced_size=184822, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0247 = reference_type=0, referenced_size=188701, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0248 = reference_type=0, referenced_size=185339, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0249 = reference_type=0, referenced_size=187734, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0250 = reference_type=0, referenced_size=181552, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0251 = reference_type=0, referenced_size=180002, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0252 = reference_type=0, referenced_size=187431, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0253 = reference_type=0, referenced_size=189519, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0254 = reference_type=0, referenced_size=182625, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0255 = reference_type=0, referenced_size=179601, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0256 = reference_type=0, referenced_size=180743, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0257 = reference_type=0, referenced_size=180179, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0258 = reference_type=0, referenced_size=184059, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0259 = reference_type=0, referenced_size=181086, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0260 = reference_type=0, referenced_size=179111, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0261 = reference_type=0, referenced_size=184485, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0262 = reference_type=0, referenced_size=179041, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0263 = reference_type=0, referenced_size=182580, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0264 = reference_type=0, referenced_size=185306, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0265 = reference_type=0, referenced_size=181021, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0266 = reference_type=0, referenced_size=176967, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0267 = reference_type=0, referenced_size=181474, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0268 = reference_type=0, referenced_size=178401, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0269 = reference_type=0, referenced_size=181770, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0270 = reference_type=0, referenced_size=186258, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0271 = reference_type=0, referenced_size=189805, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0272 = reference_type=0, referenced_size=183416, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0273 = reference_type=0, referenced_size=180755, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0274 = reference_type=0, referenced_size=183967, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0275 = reference_type=0, referenced_size=180020, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0276 = reference_type=0, referenced_size=183161, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0277 = reference_type=0, referenced_size=185757, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0278 = reference_type=0, referenced_size=183604, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0279 = reference_type=0, referenced_size=181410, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0280 = reference_type=0, referenced_size=183644, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0281 = reference_type=0, referenced_size=185888, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0282 = reference_type=0, referenced_size=187084, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0283 = reference_type=0, referenced_size=183980, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0284 = reference_type=0, referenced_size=178033, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0285 = reference_type=0, referenced_size=179403, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0286 = reference_type=0, referenced_size=180971, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0287 = reference_type=0, referenced_size=182523, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0288 = reference_type=0, referenced_size=186961, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0289 = reference_type=0, referenced_size=184147, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0290 = reference_type=0, referenced_size=187241, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0291 = reference_type=0, referenced_size=182142, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0292 = reference_type=0, referenced_size=177492, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0293 = reference_type=0, referenced_size=183889, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0294 = reference_type=0, referenced_size=178871, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0295 = reference_type=0, referenced_size=183292, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0296 = reference_type=0, referenced_size=181247, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0297 = reference_type=0, referenced_size=183399, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0298 = reference_type=0, referenced_size=179172, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0299 = reference_type=0, referenced_size=182675, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0300 = reference_type=0, referenced_size=184297, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0301 = reference_type=0, referenced_size=181982, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0302 = reference_type=0, referenced_size=181654, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0303 = reference_type=0, referenced_size=184964, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0304 = reference_type=0, referenced_size=186544, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0305 = reference_type=0, referenced_size=182553, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0306 = reference_type=0, referenced_size=183348, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0307 = reference_type=0, referenced_size=187125, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0308 = reference_type=0, referenced_size=183656, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0309 = reference_type=0, referenced_size=187052, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0310 = reference_type=0, referenced_size=184419, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0311 = reference_type=0, referenced_size=180329, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0312 = reference_type=0, referenced_size=186453, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0313 = reference_type=0, referenced_size=183511, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0314 = reference_type=0, referenced_size=183450, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0315 = reference_type=0, referenced_size=178199, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0316 = reference_type=0, referenced_size=180381, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0317 = reference_type=0, referenced_size=185813, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0318 = reference_type=0, referenced_size=183406, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0319 = reference_type=0, referenced_size=182024, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0320 = reference_type=0, referenced_size=188208, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0321 = reference_type=0, referenced_size=185573, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0322 = reference_type=0, referenced_size=181309, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0323 = reference_type=0, referenced_size=181113, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0324 = reference_type=0, referenced_size=188101, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0325 = reference_type=0, referenced_size=182062, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0326 = reference_type=0, referenced_size=180376, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0327 = reference_type=0, referenced_size=177444, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0328 = reference_type=0, referenced_size=180859, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0329 = reference_type=0, referenced_size=177307, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0330 = reference_type=0, referenced_size=179796, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0331 = reference_type=0, referenced_size=183687, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0332 = reference_type=0, referenced_size=175084, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0333 = reference_type=0, referenced_size=180552, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0334 = reference_type=0, referenced_size=184734, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0335 = reference_type=0, referenced_size=181813, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0336 = reference_type=0, referenced_size=189508, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0337 = reference_type=0, referenced_size=182015, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0338 = reference_type=0, referenced_size=181436, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0339 = reference_type=0, referenced_size=181570, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0340 = reference_type=0, referenced_size=182615, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0341 = reference_type=0, referenced_size=180414, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0342 = reference_type=0, referenced_size=182409, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0343 = reference_type=0, referenced_size=184301, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0344 = reference_type=0, referenced_size=192434, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0345 = reference_type=0, referenced_size=180434, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0346 = reference_type=0, referenced_size=180146, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0347 = reference_type=0, referenced_size=186146, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0348 = reference_type=0, referenced_size=181539, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0349 = reference_type=0, referenced_size=187099, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0350 = reference_type=0, referenced_size=184261, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0351 = reference_type=0, referenced_size=179613, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0352 = reference_type=0, referenced_size=185249, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0353 = reference_type=0, referenced_size=183652, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0354 = reference_type=0, referenced_size=183435, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0355 = reference_type=0, referenced_size=183301, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0356 = reference_type=0, referenced_size=179490, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0357 = reference_type=0, referenced_size=180709, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0358 = reference_type=0, referenced_size=181933, subsegment_duration=450000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0
+  entry 0359 = reference_type=0, referenced_size=181587, subsegment_duration=447000, starts_with_SAP=1, SAP_type=1, SAP_delta_time=0

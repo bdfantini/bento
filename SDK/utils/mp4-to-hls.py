@@ -636,12 +636,12 @@ def OutputHlsTrack(options, track, media_subdir, media_playlist_name, media_file
     if options.split:
         segment_pattern = SEGMENT_PATTERN.replace('ll','')
 
-    for i in range(len(track.segment_durations)):
+    for i in range(len(track.segment_sizes)):
         media_playlist_file.write('#EXTINF:%f,\r\n' % (track.segment_durations[i]))
         if options.on_demand or not options.split:
             segment          = track.parent.segments[track.moofs[i]]
             segment_position = segment[0].position
-            segment_size     = reduce(operator.add, [atom.size for atom in segment], 0)
+            segment_size     = track.segment_sizes[i]
             media_playlist_file.write('#EXT-X-BYTERANGE:%d@%d\r\n' % (segment_size, segment_position))
             media_playlist_file.write(media_file_name)
         else:

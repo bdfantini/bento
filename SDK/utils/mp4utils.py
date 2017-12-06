@@ -550,7 +550,6 @@ class Mp4File:
         segment_position = 0
         for atom in self.tree:
             segment_position += int(atom['size'])
-            print 'Position: ', segment_position
             
             if atom['name'] == 'sidx':
                 for key, value in atom.iteritems():

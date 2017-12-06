@@ -28,6 +28,7 @@
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/python;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = bento;

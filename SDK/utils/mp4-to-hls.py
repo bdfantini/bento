@@ -23,6 +23,8 @@ import re
 import platform
 import sys
 import math
+import urllib2
+import urlparse
 from mp4utils import *
 from subtitles import *
 
@@ -594,6 +596,30 @@ def ComputeHlsWidevineKeyLine(options, track):
 #############################################
 def ComputeHlsFairplayKeyLine(options):
     return 'URI="'+options.fairplay_key_uri+'",KEYFORMAT="com.apple.streamingkeydelivery",KEYFORMATVERSIONS="1"'
+
+#############################################
+def SaveMp4Header(options, remote_url):
+    # load and parse the Mp4 file
+    if Options.verbose: print "Loading Mp4 from", remote_url
+    try:
+        tmp_mp4 = path.join(options.output_dir, 'tmp.mp4')
+        sidx_downloaded = False
+        with open(tmp_mp4, 'wb') as f:
+            reader = urllib2.urlopen(remote_url)
+            sidx_downloaded=False
+            while not sidx_downloaded:
+                chunk = reader.read(1024)
+                f.write(chunk)
+                atoms = WalkAtoms(tmp_mp4)
+                for atom in atoms:
+                    if atom.type == 'moof':
+                        sidx_downloaded=True
+                        break
+            f.close()
+    except Exception as e:
+        print "ERROR: failed to load Mp4:", e
+        sys.exit(1)
+    return tmp_mp4
 
 #############################################
 def OutputHlsCommon(options, track, media_subdir, playlist_name, media_file_name):
@@ -1492,6 +1518,12 @@ def main():
     if options.force_output: severity = None
     MakeNewDir(dir=options.output_dir, exit_if_exists = not (options.no_media or options.force_output), severity=severity)
 
+    if options.remote_url:
+        tmp_media_sources = []
+        for url in media_sources:
+            tmp_media_file = SaveMp4Header(options, str(url))
+            tmp_media_sources.append(MediaSource(tmp_media_file))
+
     # for on-demand, we need to first extract tracks into individual media files
     if options.on_demand:
         (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, media_sources)
@@ -1618,7 +1650,7 @@ def main():
             media_source.filename = encrypted_file.name
 
     # parse the media sources and select the audio and video tracks
-    (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, media_sources)
+    (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, tmp_media_sources)
     subtitles_files = SelectSubtitlesFiles(options, media_sources)
 
     # store lists of all tracks by type
@@ -1795,7 +1827,7 @@ def main():
                 if not options.force_output and path.exists(media_filename):
                     PrintErrorAndExit('ERROR: file ' + media_filename + ' already exists')
 
-                shutil.copyfile(mp4_file.media_source.filename, media_filename)
+#                shutil.copyfile(mp4_file.media_source.filename, media_filename)
             if options.smooth or options.hippo:
                 for track in audio_tracks+video_tracks+subtitles_tracks:
                     Mp4Split(options,

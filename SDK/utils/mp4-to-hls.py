@@ -669,7 +669,7 @@ def OutputHlsTrack(options, track, media_subdir, media_playlist_name, media_file
             segment_position = segment['position']
             segment_size     = track.segment_sizes[i]
             media_playlist_file.write('#EXT-X-BYTERANGE:%d@%d\r\n' % (segment_size, segment_position))
-            media_playlist_file.write('fmp4.mp4')
+            media_playlist_file.write(media_file_name)
         else:
             media_playlist_file.write(segment_pattern % (i+1))
         media_playlist_file.write('\r\n')
@@ -774,7 +774,7 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                                         language,
                                         language_name,
                                         media_playlist_path)).encode('utf-8'))
-            OutputHlsTrack(options, audio_track, media_subdir, media_playlist_name, media_file_name)
+            OutputHlsTrack(options, audio_track, media_subdir, media_playlist_name, audio_track.parent.remote_url)
 
     master_playlist_file.write('\r\n')
     master_playlist_file.write('# Video\r\n')
@@ -814,8 +814,8 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                                        video_track.height))
             master_playlist_file.write(media_playlist_path+'\r\n')
 
-        OutputHlsTrack(options, video_track, media_subdir, media_playlist_name, media_file_name)
-        OutputHlsIframeIndex(options, video_track, media_subdir, iframes_playlist_name, media_file_name)
+        OutputHlsTrack(options, video_track, media_subdir, media_playlist_name, video_track.parent.remote_url)
+#        OutputHlsIframeIndex(options, video_track, media_subdir, iframes_playlist_name, video_track.parent.remote_url)
 
     master_playlist_file.write('\r\n# I-Frame Playlists\r\n')
     for video_track in all_video_tracks:
@@ -1041,12 +1041,14 @@ def OutputHippo(options, audio_tracks, video_tracks):
         open(path.join(options.output_dir, options.hippo_server_manifest_filename), "wb").write(server_manifest)
 
 #############################################
-def SelectTracks(options, media_sources):
+def SelectTracks(options, media_sources, remote_sources):
     # parse the media files
     file_list_index = 1
     mp4_files = {}
     mp4_media_names = []
-    for media_source in media_sources:
+    for i in range(len(media_sources)):
+        media_source = media_sources[i]
+        remote_source = remote_sources[i]
         if media_source.format != 'mp4': continue
 
         media_file = media_source.filename
@@ -1062,7 +1064,7 @@ def SelectTracks(options, media_sources):
 
         # get the file info
         print 'Parsing media file', str(file_list_index)+':', GetMappedFileName(media_file)
-        mp4_file = Mp4File(Options, media_source)
+        mp4_file = Mp4File(Options, media_source, remote_source.filename)
 
         # set some metadata properties for this file
         mp4_file.file_list_index = file_list_index
@@ -1526,7 +1528,7 @@ def main():
 
     # for on-demand, we need to first extract tracks into individual media files
     if options.on_demand:
-        (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, media_sources)
+        (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, tmp_media_sources, media_sources)
         media_sources = filter(lambda x: x.format == "webvtt", media_sources) #Keep subtitles
         for track in sum(audio_sets.values()+video_sets.values(), []):
             print 'Extracting track', track.id, 'from', GetMappedFileName(track.parent.media_source.filename)
@@ -1650,7 +1652,7 @@ def main():
             media_source.filename = encrypted_file.name
 
     # parse the media sources and select the audio and video tracks
-    (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, tmp_media_sources)
+    (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, tmp_media_sources, media_sources)
     subtitles_files = SelectSubtitlesFiles(options, media_sources)
 
     # store lists of all tracks by type

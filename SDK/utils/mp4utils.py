@@ -481,10 +481,11 @@ class Mp4Track:
         return 'File '+str(self.parent.file_list_index)+'#'+str(self.id)
 
 class Mp4File:
-    def __init__(self, options, media_source):
-        self.media_source    = media_source
-        self.tracks          = {}
-        self.file_list_index = 0 # used to keep a sequence number just amongst all sources
+    def __init__(self, options, media_source, remote_url=None):
+        self.media_source           = media_source
+        self.remote_url             = remote_url
+        self.tracks                 = {}
+        self.file_list_index        = 0 # used to keep a sequence number just amongst all sources
 
         filename = media_source.filename
         if options.debug:

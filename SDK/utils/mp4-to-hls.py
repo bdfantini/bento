@@ -1345,6 +1345,8 @@ def main():
                       help="Specify the key URI to use for FairPlay Streaming key delivery (only valid with --hls option)")
     parser.add_option('', "--exec-dir", metavar="<exec_dir>", dest="exec_dir", default=default_exec_dir,
                       help="Directory where the Bento4 executables are located")
+    parser.add_option('', "--remote-url", dest="remote_url", default=False,
+                      help="Enable remote url generation")
     (options, args) = parser.parse_args()
     if len(args) == 0:
         parser.print_help()

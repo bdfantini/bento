@@ -63,6 +63,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "--remote-url"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-f"
             isEnabled = "YES">
          </CommandLineArgument>

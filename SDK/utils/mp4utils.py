@@ -499,8 +499,6 @@ class Mp4File:
         for atom in self.atoms:
             if atom.type == 'moov':
                 self.init_segment = atom
-#            elif atom.type == 'moof':
-#                self.segments.append([atom])
             else:
                 if len(self.segments):
                     self.segments[-1].append(atom)
@@ -557,15 +555,9 @@ class Mp4File:
             if atom['name'] == 'sidx':
                 for key, value in atom.iteritems():
                     if key.startswith('entry'):
-                        print key, value
                         segment_index = int(re.findall(r'entry (\d+)', key)[0])
-                        print 'Segment index:', segment_index
-    
                         segment_size = int(re.findall(r'referenced_size=(\d+)', value)[0])
-                        print 'Segment size:', segment_size
-    
                         segment_duration = int(re.findall(r'segment_duration=(\d+)', value)[0])
-                        print 'Segment duration:', segment_duration
     
                         track = self.tracks[track_id]
                         track.moofs.append(segment_index)

@@ -25,6 +25,7 @@ import sys
 import math
 import urllib2
 import urlparse
+import random
 from mp4utils import *
 from subtitles import *
 
@@ -602,7 +603,9 @@ def SaveMp4Header(options, remote_url):
     # load and parse the Mp4 file
     if Options.verbose: print "Loading Mp4 from", remote_url
     try:
-        tmp_mp4 = path.join(options.output_dir, 'tmp.mp4')
+        sys_random = random.SystemRandom()
+        random_iv = str(sys_random.getrandbits(16))
+        tmp_mp4 = path.join(options.output_dir, 'tmp' + random_iv + '.mp4')
         sidx_downloaded = False
         with open(tmp_mp4, 'wb') as f:
             reader = urllib2.urlopen(remote_url)
@@ -775,6 +778,7 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                                         language_name,
                                         media_playlist_path)).encode('utf-8'))
             OutputHlsTrack(options, audio_track, media_subdir, media_playlist_name, audio_track.parent.remote_url)
+            os.remove(path.join(options.output_dir, audio_track.parent.media_name))
 
     master_playlist_file.write('\r\n')
     master_playlist_file.write('# Video\r\n')
@@ -815,6 +819,7 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
             master_playlist_file.write(media_playlist_path+'\r\n')
 
         OutputHlsTrack(options, video_track, media_subdir, media_playlist_name, video_track.parent.remote_url)
+        os.remove(path.join(options.output_dir, video_track.parent.media_name))
 #        OutputHlsIframeIndex(options, video_track, media_subdir, iframes_playlist_name, video_track.parent.remote_url)
 
     master_playlist_file.write('\r\n# I-Frame Playlists\r\n')

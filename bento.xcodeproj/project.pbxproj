@@ -21,17 +21,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		20EE02951FD6F4AB00FC59E3 /* bento */ = {
+		205C51591FD9B460000CABC5 /* bento dash clone */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = 20EE02981FD6F4AB00FC59E3 /* Build configuration list for PBXLegacyTarget "bento" */;
+			buildConfigurationList = 205C515A1FD9B460000CABC5 /* Build configuration list for PBXLegacyTarget "bento dash clone" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/python;
 			buildWorkingDirectory = "";
 			dependencies = (
 			);
-			name = bento;
+			name = "bento dash clone";
+			passBuildSettingsInEnvironment = 1;
+			productName = bento;
+		};
+		20EE02951FD6F4AB00FC59E3 /* bento to hls */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 20EE02981FD6F4AB00FC59E3 /* Build configuration list for PBXLegacyTarget "bento to hls" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/python;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "bento to hls";
 			passBuildSettingsInEnvironment = 1;
 			productName = bento;
 		};
@@ -44,6 +58,9 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Benjamin Fantini";
 				TargetAttributes = {
+					205C51591FD9B460000CABC5 = {
+						ProvisioningStyle = Automatic;
+					};
 					20EE02951FD6F4AB00FC59E3 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -61,12 +78,38 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				20EE02951FD6F4AB00FC59E3 /* bento */,
+				20EE02951FD6F4AB00FC59E3 /* bento to hls */,
+				205C51591FD9B460000CABC5 /* bento dash clone */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin XCBuildConfiguration section */
+		205C515B1FD9B460000CABC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		205C515C1FD9B460000CABC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		20EE02961FD6F4AB00FC59E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -192,6 +235,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		205C515A1FD9B460000CABC5 /* Build configuration list for PBXLegacyTarget "bento dash clone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				205C515B1FD9B460000CABC5 /* Debug */,
+				205C515C1FD9B460000CABC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		20EE02941FD6F4AB00FC59E3 /* Build configuration list for PBXProject "bento" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -201,7 +253,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		20EE02981FD6F4AB00FC59E3 /* Build configuration list for PBXLegacyTarget "bento" */ = {
+		20EE02981FD6F4AB00FC59E3 /* Build configuration list for PBXLegacyTarget "bento to hls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				20EE02991FD6F4AB00FC59E3 /* Debug */,

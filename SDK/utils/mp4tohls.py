@@ -341,6 +341,60 @@ def AddDescriptor(adaptation_set, set_attributes, set_name, category_name):
                 sys.stderr.write('WARNING: ignoring ' + descriptor_name + ' descriptor for set "' + set_name + '", the schemeIdUri must be specified\n')
 
 #############################################
+def GenerateHls(list, options):
+    media_sources = [MediaSource(source) for source in list]
+    
+    tmp_media_sources = []
+    for url in media_sources:
+        tmp_media_file = SaveMp4Header(options.output_dir, str(url))
+        tmp_media_sources.append(MediaSource(tmp_media_file))
+    
+    # parse the attributes definitions
+    set_attributes = {}
+    
+    # parse the media sources and select the audio and video tracks
+    (audio_sets, video_sets, subtitles_sets, mp4_files) = SelectTracks(options, tmp_media_sources, media_sources)
+    subtitles_files = SelectSubtitlesFiles(options, media_sources)
+
+    # compute the representation id and init segment name for each track
+    for adaptation_sets in [audio_sets, video_sets, subtitles_sets]:
+        for adaptation_set_name, tracks in adaptation_sets.items():
+            for track in tracks:
+                track.representation_id = '-'.join(adaptation_set_name)
+                if len(tracks) > 1:
+                    track.representation_id += '-'+str(track.order_index)
+                track.init_segment_name = NOSPLIT_INIT_FILE_PATTERN % (track.representation_id)
+                track.stream_id = adaptation_set_name[0]
+                if adaptation_set_name[0] == 'audio':
+                    track.stream_id += '_'+track.language
+
+    # store lists of all tracks by type
+    audio_tracks     = sum(audio_sets.values(),     [])
+    video_tracks     = sum(video_sets.values(),     [])
+    subtitles_tracks = sum(subtitles_sets.values(), [])
+
+    # check that we have at least one audio and one video
+    if len(audio_tracks) == 0 and len(video_tracks) == 0 and len(subtitles_tracks) == 0:
+        PrintErrorAndExit('ERROR: no track selected')
+
+    for mp4_file in mp4_files.values():
+        print 'Processing and Copying media file', GetMappedFileName(mp4_file.media_source.filename)
+        media_filename = path.join(options.output_dir, mp4_file.media_name)
+        if not options.force_output and path.exists(media_filename):
+            PrintErrorAndExit('ERROR: file ' + media_filename + ' already exists')
+            if options.smooth or options.hippo:
+                for track in audio_tracks+video_tracks+subtitles_tracks:
+                    Mp4Split(options,
+                             track.parent.media_source.filename,
+                             track_id     = str(track.id),
+                             init_only    = True,
+                             init_segment = path.join(options.output_dir, track.init_segment_name))
+
+    OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, subtitles_files)
+
+    return ''
+
+#############################################
 def OutputDash(options, set_attributes, audio_sets, video_sets, subtitles_sets, subtitles_files):
     all_audio_tracks     = sum(audio_sets.values(),     [])
     all_video_tracks     = sum(video_sets.values(),     [])
@@ -599,35 +653,9 @@ def ComputeHlsFairplayKeyLine(options):
     return 'URI="'+options.fairplay_key_uri+'",KEYFORMAT="com.apple.streamingkeydelivery",KEYFORMATVERSIONS="1"'
 
 #############################################
-def SaveMp4Header(options, remote_url):
-    # load and parse the Mp4 file
-    if Options.verbose: print "Loading Mp4 from", remote_url
-    try:
-        sys_random = random.SystemRandom()
-        random_iv = str(sys_random.getrandbits(16))
-        tmp_mp4 = path.join(options.output_dir, 'tmp' + random_iv + '.mp4')
-        sidx_downloaded = False
-        with open(tmp_mp4, 'wb') as f:
-            reader = urllib2.urlopen(remote_url)
-            sidx_downloaded=False
-            while not sidx_downloaded:
-                chunk = reader.read(1024)
-                f.write(chunk)
-                atoms = WalkAtoms(tmp_mp4)
-                for atom in atoms:
-                    if atom.type == 'moof':
-                        sidx_downloaded=True
-                        break
-            f.close()
-    except Exception as e:
-        print "ERROR: failed to load Mp4:", e
-        sys.exit(1)
-    return tmp_mp4
-
-#############################################
 def OutputHlsCommon(options, track, media_subdir, playlist_name, media_file_name):
     hls_target_duration = math.ceil(max(track.segment_durations))
-
+    
     playlist_file = open(path.join(options.output_dir, media_subdir, playlist_name), 'w+')
     playlist_file.write('#EXTM3U\r\n')
     playlist_file.write('# Created with Bento4 mp4-dash.py, VERSION=' + VERSION + '-' + SDK_REVISION+'\r\n')
@@ -637,24 +665,8 @@ def OutputHlsCommon(options, track, media_subdir, playlist_name, media_file_name
     playlist_file.write('#EXT-X-INDEPENDENT-SEGMENTS\r\n')
     playlist_file.write('#EXT-X-TARGETDURATION:%d\r\n' % (hls_target_duration))
     playlist_file.write('#EXT-X-MEDIA-SEQUENCE:0\r\n')
-    if options.split:
-        playlist_file.write('#EXT-X-MAP:URI="%s"\r\n' % (SPLIT_INIT_SEGMENT_NAME))
-    else:
-        init_segment_size = track.parent.init_segment.position + track.parent.init_segment.size
-        playlist_file.write('#EXT-X-MAP:URI="%s",BYTERANGE="%d@0"\r\n' % (media_file_name, init_segment_size))
-
-    if options.encryption_key:
-        key_lines = []
-        if options.fairplay_key_uri:
-            key_lines.append(ComputeHlsFairplayKeyLine(options))
-        if options.widevine_header:
-            key_lines.append(ComputeHlsWidevineKeyLine(options, track))
-
-        if len(key_lines) == 0:
-            key_lines.append('URI="'+options.hls_key_url+'",IV=0x'+track.key_info['iv'])
-        
-        for key_line in key_lines:
-            playlist_file.write('#EXT-X-KEY:METHOD=SAMPLE-AES,'+key_line+'\r\n')
+    init_segment_size = track.parent.init_segment.position + track.parent.init_segment.size
+    playlist_file.write('#EXT-X-MAP:URI="%s",BYTERANGE="%d@0"\r\n' % (media_file_name, init_segment_size))
 
     return playlist_file
 
@@ -662,19 +674,13 @@ def OutputHlsCommon(options, track, media_subdir, playlist_name, media_file_name
 def OutputHlsTrack(options, track, media_subdir, media_playlist_name, media_file_name):
     media_playlist_file = OutputHlsCommon(options, track, media_subdir, media_playlist_name, media_file_name)
 
-    if options.split:
-        segment_pattern = SEGMENT_PATTERN.replace('ll','')
-
     for i in range(len(track.segment_sizes)):
         media_playlist_file.write('#EXTINF:%f,\r\n' % (track.segment_durations[i]))
-        if options.on_demand or not options.split:
-            segment          = track.parent.segments[i]
-            segment_position = segment['position']
-            segment_size     = track.segment_sizes[i]
-            media_playlist_file.write('#EXT-X-BYTERANGE:%d@%d\r\n' % (segment_size, segment_position))
-            media_playlist_file.write(media_file_name)
-        else:
-            media_playlist_file.write(segment_pattern % (i+1))
+        segment          = track.parent.segments[i]
+        segment_position = segment['position']
+        segment_size     = track.segment_sizes[i]
+        media_playlist_file.write('#EXT-X-BYTERANGE:%d@%d\r\n' % (segment_size, segment_position))
+        media_playlist_file.write(media_file_name)
         media_playlist_file.write('\r\n')
 
     media_playlist_file.write('#EXT-X-ENDLIST\r\n')
@@ -761,40 +767,29 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                 if audio_groups[audio_group_name]['codec'] != audio_track.codec:
                     print 'WARNING: audio codecs not all the same:', audio_groups[audio_group_name]['codec'], audio_track.codec
 
-            if options.on_demand or not options.split:
-                media_subdir        = ''
-                media_file_name     = audio_track.parent.media_name
-                media_playlist_name = audio_track.representation_id+".m3u8"
-                media_playlist_path = media_playlist_name
-            else:
-                media_subdir        = audio_track.representation_id
-                media_file_name     = ''
-                media_playlist_name = options.hls_media_playlist_name
-                media_playlist_path = media_subdir+'/'+media_playlist_name
+            media_subdir        = ''
+            media_file_name     = audio_track.parent.media_name
+            media_playlist_name = audio_track.representation_id+".m3u8"
+            media_playlist_path = media_playlist_name
 
             master_playlist_file.write(('#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="%s",LANGUAGE="%s",NAME="%s",AUTOSELECT=YES,DEFAULT=YES,URI="%s"\r\n' % (
                                         audio_group_name,
                                         language,
                                         language_name,
                                         media_playlist_path)).encode('utf-8'))
+
             OutputHlsTrack(options, audio_track, media_subdir, media_playlist_name, audio_track.parent.remote_url)
             os.remove(path.join(options.output_dir, audio_track.parent.media_name))
 
     master_playlist_file.write('\r\n')
     master_playlist_file.write('# Video\r\n')
     for video_track in all_video_tracks:
-        if options.on_demand or not options.split:
-            media_subdir          = ''
-            media_file_name       = video_track.parent.media_name
-            media_playlist_name   = video_track.representation_id+".m3u8"
-            media_playlist_path   = media_playlist_name
-            iframes_playlist_name = video_track.representation_id+"_iframes.m3u8"
-        else:
-            media_subdir          = video_track.representation_id
-            media_file_name       = ''
-            media_playlist_name   = options.hls_media_playlist_name
-            media_playlist_path   = media_subdir+'/'+media_playlist_name
-            iframes_playlist_name = options.hls_iframes_playlist_name
+    
+        media_subdir          = ''
+        media_file_name       = video_track.parent.media_name
+        media_playlist_name   = video_track.representation_id+".m3u8"
+        media_playlist_path   = media_playlist_name
+        iframes_playlist_name = video_track.representation_id+"_iframes.m3u8"
 
         if len(audio_groups):
             # one entry per audio group
@@ -1046,6 +1041,32 @@ def OutputHippo(options, audio_tracks, video_tracks):
         open(path.join(options.output_dir, options.hippo_server_manifest_filename), "wb").write(server_manifest)
 
 #############################################
+def SaveMp4Header(output_dir, remote_url):
+    # load and parse the Mp4 file
+    print "Loading Mp4 from", remote_url
+    try:
+        sys_random = random.SystemRandom()
+        random_iv = str(sys_random.getrandbits(16))
+        tmp_mp4 = path.join(output_dir, 'tmp' + random_iv + '.mp4')
+        sidx_downloaded = False
+        with open(tmp_mp4, 'wb') as f:
+            reader = urllib2.urlopen(remote_url)
+            sidx_downloaded=False
+            while not sidx_downloaded:
+                chunk = reader.read(1024)
+                f.write(chunk)
+                atoms = WalkAtoms(tmp_mp4)
+                for atom in atoms:
+                    if atom.type == 'moof':
+                        sidx_downloaded=True
+                        break
+            f.close()
+    except Exception as e:
+        print "ERROR: failed to load Mp4:", e
+        sys.exit(1)
+    return tmp_mp4
+
+#############################################
 def SelectTracks(options, media_sources, remote_sources):
     # parse the media files
     file_list_index = 1
@@ -1069,7 +1090,7 @@ def SelectTracks(options, media_sources, remote_sources):
 
         # get the file info
         print 'Parsing media file', str(file_list_index)+':', GetMappedFileName(media_file)
-        mp4_file = Mp4File(Options, media_source, remote_source.filename)
+        mp4_file = Mp4File(options, media_source, remote_source.filename)
 
         # set some metadata properties for this file
         mp4_file.file_list_index = file_list_index
@@ -1083,9 +1104,8 @@ def SelectTracks(options, media_sources, remote_sources):
         else:
             mp4_file.media_name = path.basename(media_source.original_filename)
 
-        if not options.split:
-            if mp4_file.media_name in mp4_media_names:
-                PrintErrorAndExit('ERROR: output media name %s is not unique, consider using --rename-media'%mp4_file.media_name)
+        if mp4_file.media_name in mp4_media_names:
+            PrintErrorAndExit('ERROR: output media name %s is not unique, consider using --rename-media'%mp4_file.media_name)
 
         # check the file
         if mp4_file.info['movie']['fragments'] != True:
@@ -1134,17 +1154,6 @@ def SelectTracks(options, media_sources, remote_sources):
 
         # pre-process the track metadata
         for track in tracks:
-            # track language
-            language = LanguageCodeMap.get(track.language, track.language)
-            if track_language and track_language != language and track_language != track.language:
-                continue
-            remap_language = media_source.spec.get('+language')
-            if remap_language:
-                language = remap_language
-            elif options.language_map and language in options.language_map:
-                language = options.language_map[language]
-            track.language = language
-
             # video scan type
             if track.type == 'video':
                 track.scan_type = media_source.spec.get('+scan_type', track.scan_type)
@@ -1170,19 +1179,6 @@ def SelectTracks(options, media_sources, remote_sources):
             video_adaptation_sets[adaptation_set_name] = adaptation_set
             adaptation_set.append(track)
             track.order_index = len(adaptation_set)
-
-        # process subtitle tracks
-        if options.subtitles:
-            for track in [t for t in tracks if t.type == 'subtitles']:
-                adaptation_set_name = ('subtitles', track.language, track.codec_family)
-                adaptation_set = subtitles_adaptation_sets.get(adaptation_set_name, [])
-                subtitles_adaptation_sets[adaptation_set_name] = adaptation_set
-
-                if len([et for et in adaptation_set if et.language == track.language]):
-                    continue # only accept one track for each language
-
-                adaptation_set.append(track)
-                track.order_index = len(adaptation_set)
 
     return (audio_adaptation_sets, video_adaptation_sets, subtitles_adaptation_sets, mp4_files)
 
@@ -1528,7 +1524,7 @@ def main():
     if options.remote_url:
         tmp_media_sources = []
         for url in media_sources:
-            tmp_media_file = SaveMp4Header(options, str(url))
+            tmp_media_file = SaveMp4Header(options.output_dir, str(url))
             tmp_media_sources.append(MediaSource(tmp_media_file))
 
     # for on-demand, we need to first extract tracks into individual media files
